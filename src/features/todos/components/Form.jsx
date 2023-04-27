@@ -24,8 +24,15 @@ const Form = () => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
     
+    const newTodo = {
+      id: nextId(),
+      title: todo.title,
+      body: todo.body,
+      isDone: false,
+    };
+
     // 추가하기 버튼 클릭시 아이템 화면에 추가되도록
-    dispatch(addTodo(todo));
+    dispatch(addTodo(newTodo));
     setTodo({
       id: 0,
       title: "",
