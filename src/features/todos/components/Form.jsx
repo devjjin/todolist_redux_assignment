@@ -6,6 +6,7 @@ import { addTodo } from "../../../redux/modules/todos.js";
 
 const Form = () => {
   const id = nextId();
+  const dispatch = useDispatch();
   
   const [todo, setTodo] = useState({
     id: 0,
@@ -23,6 +24,8 @@ const Form = () => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
     
+    // 추가하기 버튼 클릭시 아이템 화면에 추가되도록
+    dispatch(addTodo(todo));
     setTodo({
       id: 0,
       title: "",
