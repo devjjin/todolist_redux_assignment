@@ -9,8 +9,12 @@ const Detail = () => {
   const todo = useSelector((state) => state.todos.todo);
 
   const { id } = useParams();
+  
+  useEffect(() => {
+    dispatch(getTodoByID(id));
+  },[dispatch])
   const navigate = useNavigate();
-
+  
   return (
     <StContainer>
       <StDialog>
