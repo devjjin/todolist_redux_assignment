@@ -63,6 +63,12 @@ const todos = (state = initialState, action) => {
         // todos: [action.payload],
         todos: [...state.todos, action.payload],
       };
+    
+    case DELETE_TODO:
+      return{
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload),
+      }
 
     case TOGGLE_STATUS_TODO:
       return {
